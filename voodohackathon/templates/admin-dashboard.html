@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Panel</h2>
+<div class="card">
+    <h3>Registered Users</h3>
+    <ul>
+        {% for u in users %}
+        <li>{{ u.username }} - {{ u.role }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>All Tickets</h3>
+    <ul>
+        {% for t in tickets %}
+        <li>#{{ t.ticket_id }} {{ t.subject }} ({{ t.status }}) - {{ t.user }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

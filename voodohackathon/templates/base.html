@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickDesk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">QuickDesk</div>
+        <nav class="sidebar-nav">
+            <a href="{{ url_for('home') }}">Home</a>
+            {% if not user %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('create_ticket') }}">Create Ticket</a>
+            {% if user.role == 'agent' %}
+            <a href="{{ url_for('agent_dashboard') }}">Agent Panel</a>
+            {% elif user.role == 'admin' %}
+            <a href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <h1>QuickDesk</h1>
+            {% if user %}
+            <span class="welcome">Welcome, {{ user.username }} ({{ user.role }})</span>
+            {% endif %}
+        </header>
+
+        <section class="content">
+            {% block content %}{% endblock %}
+        </section>
+    </main>
+</body>
+</html>

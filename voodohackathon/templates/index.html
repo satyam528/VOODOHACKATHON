@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card hero-card">
+    <h2>Make Support Simple & Fast</h2>
+    <p>QuickDesk helps you create, track, and resolve support tickets effortlessly — for users, agents, and admins alike.</p>
+    <a href="{{ url_for('login') }}" class="btn">Get Started</a>
+</div>
+
+<div class="features-grid">
+    <div class="card">
+        <h3>Easy Ticketing</h3>
+        <p>Create and manage tickets with just a few clicks. No clutter, no confusion.</p>
+    </div>
+
+    <div class="card">
+        <h3>Real-Time Updates</h3>
+        <p>Track your tickets with instant updates on status and replies.</p>
+    </div>
+
+    <div class="card">
+        <h3>Role-Based Dashboards</h3>
+        <p>Separate panels for Users, Agents, and Admins for seamless management.</p>
+    </div>
+
+    <div class="card">
+        <h3>Modern & Secure</h3>
+        <p>Fast, secure, and beautifully designed for a smooth user experience.</p>
+    </div>
+</div>
+{% endblock %}

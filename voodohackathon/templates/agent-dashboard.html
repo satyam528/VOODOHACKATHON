@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Agent Panel - All Tickets</h2>
+<div class="features-grid">
+    {% for ticket in tickets %}
+    <div class="card">
+        <h3>#{{ ticket.ticket_id }} - {{ ticket.subject }}</h3>
+        <p>{{ ticket.description }}</p>
+        <p><b>User:</b> {{ ticket.user }} | <b>Status:</b> {{ ticket.status }}</p>
+    </div>
+    {% else %}
+    <p>No tickets available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

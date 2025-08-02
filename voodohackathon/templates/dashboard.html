@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>My Tickets</h2>
+<div class="features-grid">
+    {% for ticket in tickets %}
+    <div class="card">
+        <h3>#{{ ticket.ticket_id }} - {{ ticket.subject }}</h3>
+        <p>{{ ticket.description }}</p>
+        <p><b>Status:</b> {{ ticket.status }} | <b>Category:</b> {{ ticket.category }}</p>
+    </div>
+    {% else %}
+    <p>No tickets found. <a href="{{ url_for('create_ticket') }}">Create one?</a></p>
+    {% endfor %}
+</div>
+{% endblock %}
+
